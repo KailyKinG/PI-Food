@@ -4,10 +4,10 @@ const { DataTypes } = require('sequelize');
 
 // const { conn } = require('../db');
 // conn.define('Recipe', {
-//   id: {
-//     type: DataTypes.UUID,
-//     allowNull: false,
-//     primaryKey: true,
+//   id:{
+//     type:DataTypes.UUID,
+//     primaryKey:true,
+//     allowNull:false,
 //     defaultValue: DataTypes.UUIDV4,
 //   },
 //   name: {
@@ -41,12 +41,12 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('Recipe', {
-    id: {
-      type: DataTypes.UUID,
-      allowNull: false,
-      primaryKey: true,
-      defaultValue: DataTypes.UUIDV4,
-    },
+    id:{
+    type:DataTypes.UUID,
+    primaryKey:true,
+    allowNull:false,
+    defaultValue: DataTypes.UUIDV4,
+  },
     name: {
       type: DataTypes.STRING,
       allowNull:false,

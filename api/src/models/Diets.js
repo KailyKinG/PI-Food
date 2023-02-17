@@ -5,7 +5,9 @@ const { DataTypes } = require('sequelize');
 // conn.define('Diets', {
 //   id: {
 //     type: DataTypes.INTEGER,
+//     autoIncrement: true,
 //     allowNull: false,
+//     primaryKey: true,
 //   },
 //   name: {
 //     type: DataTypes.STRING,
@@ -17,7 +19,8 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   sequelize.define('Diets', {
     id: {
-      type: DataTypes.INTEGER,
+     type: DataTypes.INTEGER,
+      autoIncrement: true,
       allowNull: false,
       primaryKey: true,
     },
