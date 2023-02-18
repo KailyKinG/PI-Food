@@ -4,10 +4,6 @@ const recipeRouter = Router();
 const { getAllFood, getFoodById, createRecipe } = require('../controllers/recipeControllers');
 
 //Debemos De Suponer Que Antes Esta La Ruta /api
-recipeRouter.get('/', (req, res) => {
-  res.status(200).json({"Msg": "Se Supone Que Aqui Estara El Landing Page"});
-});
-
 
 //Ruta Para Devolver Todas Las Recipes o Devolver Por El Query 'name'
 //-------------------------------------------------------------------
