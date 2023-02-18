@@ -63,11 +63,27 @@ const getAllFoodByName = async (name, data) => {
 
 //PEDIR TODAS LAS RECETAS
 const getAllFood = async  (name) => {
-  const peticion = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${clave}&addRecipeInformation=true&number=100`);
-  const data = await peticion.data.results;
+
+  //Pedimos Las Recetas En Api
+  const recetasApi = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${clave}&addRecipeInformation=true&number=100`);
+  const data = await recetasApi.data.results;
+
+  //Pedimos Las Recetas En DataBase
+  const recetasBD = await Recipe.findAll({
+    include: [
+      {
+        model:Diets,
+        attributes: ['name'],
+        through: {
+          attributes:[],
+        }
+      }
+    ]
+  });
+
   if(!name){
     const recetas = getRecipesDetails(data);
-    return recetas;
+    return [...recetas, ...recetasBD];
   }else{
     const isValid = validateString(name);
     if(!isValid) arrojarError('Debe De Ser Solo Letras Del Abecedario');
@@ -151,11 +167,25 @@ const createRecipe = async (name, image, summary, level, stepbystep, dietas) => 
   });
   (isExists.length !== dietas.length) && arrojarError('Dietas Ingresadas No Son Validas');
 
-  const newRecipes = await Recipe.create({name, image, summary, level, stepbystep});
-  newRecipes.addDiets(isExists);
-  return 'Create Diet Successfully';
-};
+  //Consultar Si Ya Tenemos La Receta; 
+  const busqueda = await Recipe.findOne({
+    where:{
+      [Op.and]:[
+        {name: name},
+        {level: level},
+        {summary: summary},
+      ]
+    }
+  }); 
 
+  if(busqueda !== null){ // Si Ya La Tenemos, Arrojamos Un Error
+    arrojarError('La Receta Ya Existe');
+  }else{ // Caso Contrario, La Creamos
+    const newRecipes = await Recipe.create({name, image, summary, level, stepbystep});
+    newRecipes.addDiets(isExists);
+    return 'Create Diet Successfully';
+  }
+};
 
 module.exports = {
   getAllFood,
