@@ -1,6 +1,6 @@
 const { Recipe, Diets } = require('../db');
 const axios = require('axios');
-const { getRecipesDetails, validateString, validateNumber } = require('../utils/utils');
+const { getRecipesDetails, validateString, arrojarError } = require('../utils/utils');
 const { Op } = require('sequelize');
 const { API_KEY, API_KEY2, API_KEY3, API_KEY4, API_KEY5 } = process.env;
 const clave = API_KEY;
@@ -56,7 +56,7 @@ const getAllFoodByName = async (name, data) => {
   const searchDb = await getAllFoodDbByName(name);
   encontrados = [...encontrados, ...searchDb];
 
-  if(!encontrados.length) throw new Error('Not Found: '+'No Se Encontraron Resultados');
+  if(!encontrados.length) arrojarError('Not Found: '+'No Se Encontraron Resultados');
   return encontrados;
 };
 
@@ -70,7 +70,7 @@ const getAllFood = async  (name) => {
     return recetas;
   }else{
     const isValid = validateString(name);
-    if(!isValid) throw new Error('Debe De Ser Solo Letras Del Abecedario');
+    if(!isValid) arrojarError('Debe De Ser Solo Letras Del Abecedario');
     const result = await getAllFoodByName(name, data);
     return result;
   }
@@ -136,12 +136,29 @@ const getFoodById = async (id) => {
     resultados = result;
   }
   
-  if(Object.keys(resultados).length === 0) throw new Error('Not Found: '+'No Se Encontraron Resultados');
+  if(Object.keys(resultados).length === 0) arrojarError('Not Found: '+'No Se Encontraron Resultados');
   return resultados;
+};
+
+
+
+const createRecipe = async (name, image, summary, level, stepbystep, dietas) => {
+  if(!name || !image || !summary || !level || !stepbystep || !dietas.length){
+    arrojarError('Parametros Necesarios Incompletos');
+  }
+  const isExists = await Diets.findAll({
+    where: {name: dietas}
+  });
+  (isExists.length !== dietas.length) && arrojarError('Dietas Ingresadas No Son Validas');
+
+  const newRecipes = await Recipe.create({name, image, summary, level, stepbystep});
+  newRecipes.addDiets(isExists);
+  return 'Create Diet Successfully';
 };
 
 
 module.exports = {
   getAllFood,
   getFoodById,
+  createRecipe,
 };

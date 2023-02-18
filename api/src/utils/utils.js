@@ -19,18 +19,18 @@ const validateString = (cadena) => {
 };
 
 
-const validateNumber = (dato) => {
-  const numeros = ["0", "1", "2", "3", "4", "5", "6",
-                    "7", "8", "9"];
-  if(!dato) throw new Error('Parametro Necesario Incompleto');
-  dato = dato.split("");
-  let count = 0;
-  dato.forEach((elem) => {
-    if(numeros.includes(elem)) count++;
-  });
-  if(count === dato.length) return true;
-  return false;
-}; 
+// const validateNumber = (dato) => {
+//   const numeros = ["0", "1", "2", "3", "4", "5", "6",
+//                     "7", "8", "9"];
+//   if(!dato) throw new Error('Parametro Necesario Incompleto');
+//   dato = dato.split("");
+//   let count = 0;
+//   dato.forEach((elem) => {
+//     if(numeros.includes(elem)) count++;
+//   });
+//   if(count === dato.length) return true;
+//   return false;
+// }; 
 
 
 const getRecipesDetails = (data) => {
@@ -54,8 +54,14 @@ const getRecipesDetails = (data) => {
 };
 
 
+const arrojarError = (data) => {
+  throw new Error(data);
+};
+
+
+
 module.exports = {
   validateString,
   getRecipesDetails,
-  validateNumber,
+  arrojarError,
 };
