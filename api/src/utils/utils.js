@@ -47,7 +47,7 @@ const getRecipesDetails = (data) => {
           step: elem.step,
         }
       }),
-      diets: recipes.diets?.map(elem => elem),
+      Diets: recipes.diets?.map(elem => {return {"name": elem}}),
     }
   });
   return data;

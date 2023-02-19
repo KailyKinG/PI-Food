@@ -2,8 +2,7 @@ const { Recipe, Diets } = require('../db');
 const axios = require('axios');
 const { getRecipesDetails, validateString, arrojarError } = require('../utils/utils');
 const { Op } = require('sequelize');
-const { API_KEY, API_KEY2, API_KEY3, API_KEY4, API_KEY5 } = process.env;
-const clave = API_KEY;
+const clave = require('../../apiKeyActual');
 
 // https://api.spoonacular.com/recipes/complexSearch?apiKey=${clave}
 // https://api.spoonacular.com/recipes/complexSearch?apiKey=${clave}&addRecipeInformation=true&number=100
@@ -81,10 +80,10 @@ const getAllFood = async  (name) => {
     ]
   });
 
-  if(!name){
+  if(!name){// Si No Recibimos Un 'name'; Enviamos Todas Las Recetas (API y DB)
     const recetas = getRecipesDetails(data);
     return [...recetas, ...recetasBD];
-  }else{
+  }else{ // Si Recibimos un 'name', Primero Validamos
     const isValid = validateString(name);
     if(!isValid) arrojarError('Debe De Ser Solo Letras Del Abecedario');
     const result = await getAllFoodByName(name, data);
@@ -109,7 +108,7 @@ const getFoodApiById = async (id) => {
           step: elem.step,
         }
       }),
-      diets: data.diets?.map(elem => elem),
+      Diets: data.diets?.map(elem => {return {"name": elem}}),
     }
   return data;
 };
@@ -183,7 +182,7 @@ const createRecipe = async (name, image, summary, level, stepbystep, dietas) => 
   }else{ // Caso Contrario, La Creamos
     const newRecipes = await Recipe.create({name, image, summary, level, stepbystep});
     newRecipes.addDiets(isExists);
-    return 'Create Diet Successfully';
+    return 'Diet Created Successfully';
   }
 };
 

@@ -64,7 +64,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     stepbystep: {
-      type: DataTypes.TEXT,
+      type: DataTypes.ARRAY(DataTypes.JSONB),
       allowNull: false,
     },
     createInDB:{
