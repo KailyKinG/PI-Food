@@ -1,7 +1,7 @@
 import React from "react";
 
-import a from "About.module.css";
-import styled from "styled-components";
+// import a from "./About.module.css";
+// import styled from "styled-components";
 
 const About = (props) => {
 

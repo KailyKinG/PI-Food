@@ -1,7 +1,7 @@
 import React from "react";
 
-import d from "./Detail.module.css";
-import styled from "styled-components";
+// import d from "./Detail.module.css";
+// import styled from "styled-components";
 
 const Detail = (props) => {
 

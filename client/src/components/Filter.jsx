@@ -1,7 +1,7 @@
 import React from "react";
 
-import f from "./Filter.module.css";
-import styled from "styled-components";
+// import f from "./Filter.module.css";
+// import styled from "styled-components";
 
 const Filter = (props) => {
 

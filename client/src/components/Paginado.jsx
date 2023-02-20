@@ -1,7 +1,7 @@
 import React from "react";
 
-import p from "./Paginado.module.css";
-import styled from "styled-components";
+// import p from "./Paginado.module.css";
+// import styled from "styled-components";
 
 const Paginado = (props) => {
   return(

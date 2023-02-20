@@ -1,7 +1,7 @@
 import React from "react";
 
-import l from "./Landing.module.css";
-import styled from "styled-components";
+// import l from "./Landing.module.css";
+// import styled from "styled-components";
 
 const Landing = (props) => {
 

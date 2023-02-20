@@ -1,7 +1,7 @@
 import React from "react";
 
-import s from "./SearchBar.module.css";
-import styled from "styled-components";
+// import s from "./SearchBar.module.css";
+// import styled from "styled-components";
 
 const SearchBar = (props) => {
 

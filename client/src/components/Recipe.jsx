@@ -1,7 +1,7 @@
 import React from "react";
 
-import r from "./Recipe.module.css";
-import styled from "styled-components";
+// import r from "./Recipe.module.css";
+// import styled from "styled-components";
 
 const Recipe = (props) => {
 

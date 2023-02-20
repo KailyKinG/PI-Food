@@ -1,7 +1,7 @@
 import React from "react";
 
-import e from "./Error.module.css";
-import styled from "styled-components";
+// import e from "./Error.module.css";
+// import styled from "styled-components";
 
 const Error = (props) => {
 
