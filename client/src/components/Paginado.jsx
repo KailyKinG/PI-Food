@@ -1,13 +1,27 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
-// import p from "./Paginado.module.css";
-// import styled from "styled-components";
+import p from "./Paginado.module.css";
+import styled from "styled-components";
+
+const ContainerUL = styled.ul`
+
+`;
 
 const Paginado = (props) => {
+  const {DB, recipesPorPage, paginado} = props;
+
+  const pagesNumber = [];
+  for(let i = 1; i <= Math.ceil(DB/recipesPorPage); i++){
+    pagesNumber.push(i);
+  }
+
   return(
-    <>
-      <h1>Este Es El Componente 'Paginado'</h1>
-    </>
+    <nav className={p.componentPaginado}>
+      <ContainerUL>
+        
+      </ContainerUL>
+    </nav>
   );
 };
 

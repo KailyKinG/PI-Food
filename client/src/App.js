@@ -6,21 +6,43 @@ import Nav from "./components/Nav";
 import Form from "./components/Form";
 import Detail from "./components/Detail";
 import './App.css';
-import {Route, Switch} from "react-router-dom";
+import {Route, Switch, useLocation } from "react-router-dom";
+import { getAllFood, getAllDiets } from "./redux/actions/actions";
+import { connect } from "react-redux";
+import { useEffect } from "react";
 
-function App() {
+function App(props) {
+  const {getAllFood, getAllDiets } = props;
+  const location = useLocation();
+
+  useEffect(() => {
+    getAllFood();
+    getAllDiets();
+  }, [getAllFood, getAllDiets]);
+
   return (
     <div className="App">
-      <h1>Henry Food</h1>
-      <Landing />
-      <Home />
-      <Error />
-      <About />
-      <Nav />
-      <Form />
-      <Detail />
+      {
+        location.pathname !== '/' && <Nav />
+      }
+      <Switch>
+        <Route exact path='/' component={Landing} />
+        <Route exact path='/home' component={Home} />
+        <Route exact path='/about' component={About} />
+        <Route exact path='/form' component={Form} />
+        <Route exact path='/detail/:idDetail' render={({match}) => <Detail match={match.params.idDetail}/>} />
+        <Route path='*' render={() => <Error location={location.pathname} />} />
+      </Switch>
     </div>
   );
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getAllFood: () => dispatch(getAllFood()),
+    getAllDiets: () => dispatch(getAllDiets())
+  }
+};
+
+export default connect(null, mapDispatchToProps)(App);
+
