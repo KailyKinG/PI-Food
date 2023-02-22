@@ -8,7 +8,11 @@ import {
   GET_ALL_FOOD_BY_NAME,
   GET_FOOD_BY_ID,
   GET_ALL_DIETS,
-  CREATE_RECIPES } from "./types";
+  CREATE_RECIPES,
+  FILTER_BY_DIETS,
+  FILTER_BY_ORIGIN,
+  ORDER_ASC_DESC,
+  ORDER_HEALTH_SCORE } from "./types";
 
   /**
    * http://localhost:3001/api/recipes
@@ -94,3 +98,33 @@ export const createRecipes = (recipe) => async (dispatch) => {
     console.log(error);
   }
 };
+
+export const filterByDiets = (dieta) => {
+  return {
+    type: FILTER_BY_DIETS,
+    payload: dieta,
+  }
+};
+
+export const filterByOrigin = (origin) => {
+  return {
+    type: FILTER_BY_ORIGIN,
+    payload: origin,
+  }
+};
+
+export const orderByABC = (orden) => {
+  return {
+    type: ORDER_ASC_DESC,
+    payload: orden,
+  }
+};
+
+export const orderByHealthScore = (healthScore) => {
+  return {
+    type: ORDER_HEALTH_SCORE,
+    payload: healthScore,
+  }
+};
+
+

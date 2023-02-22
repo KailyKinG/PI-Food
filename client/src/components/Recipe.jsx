@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 //data Es Un Archivo De Prueba Con Datos De Una Receta. Usada
 //Para Crear Este Componente
-import data from "../dataExample";
+//import data from "../dataExample";
 
 import r from "./Recipe.module.css";
 import styled from "styled-components";
@@ -20,19 +20,19 @@ const ContainerUl = styled.ul`
 `;
 
 const Recipe = (props) => {
-  // const {id, image, name, Diets} = props;
+  const {id, image, name, Diets} = props;
   return(
     <div className={r.containerRecipe}>
       <div className={r.containerImage}>
-        <img className={r.imagen} src={data.image} alt={data.name} />
+        <img className={r.imagen} src={image} alt={name} />
       </div>
-      <Link className={r.titleStilos} to={`/detail/${data.id}`}>
-        <h3>{data.name}</h3>
+      <Link className={r.titleStilos} to={`/detail/${id}`}>
+        <h3>{name}</h3>
       </Link>
       <div>
         <ContainerUl>
           {
-            data.Diets.length && data.Diets.map((elem) => (
+            Diets.length && Diets.map((elem) => (
               <li key={elem.name}>{elem.name}</li>
             ))
           }

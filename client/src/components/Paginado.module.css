@@ -1,4 +1,27 @@
 .componentPaginado{
+  width: 10rem;
   color: white;
-  border: solid 1px blue;
+  border: solid 1px transparent;
+}
+
+.stylesLi{
+  width: 39px;
+  padding: 3px 3px 3px 3px;
+  border: solid 1px black;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+}
+
+.stylesLiactive{
+  width: 39px;
+  padding: 3px 3px 3px 3px;
+  border: solid 1px black;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: white;
+  color: black;
+  font-weight: bold;
 }

@@ -4,3 +4,7 @@ export const GET_ALL_FOOD_BY_NAME = "GET_ALL_FOOD_BY_NAME";
 export const GET_FOOD_BY_ID = "GET_FOOD_BY_ID";
 export const GET_ALL_DIETS = "GET_ALL_DIETS";
 export const CREATE_RECIPES = "CREATE_RECIPES"; 
+export const FILTER_BY_DIETS = "FILTER_BY_DIETS";
+export const FILTER_BY_ORIGIN = "FILTER_BY_ORIGIN";
+export const ORDER_ASC_DESC = "ORDER_ASC_DESC";
+export const ORDER_HEALTH_SCORE = "ORDER_HEALTH_SCORE"; 

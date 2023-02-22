@@ -1,5 +1,150 @@
 
 .componentFilter{
+  width: 30rem;
   color: white;
-  border: solid 1px blue;
+  border: solid 1px transparent;
 }
+
+
+/* Filtro Por Tipos De Dietas */
+.containerDietas{
+  padding-top: 20px;
+  width: 100%;
+  height: 30%;
+  margin-bottom: 30px;
+  border: solid 1px transparent;
+}
+
+.containerDietas h3 {
+  text-align: left;
+  padding-bottom: 10px;
+  margin: 0;
+}
+
+.botonera{
+  width: 100%;
+  height: 88.9%;
+  display: flex;
+}
+
+.grupo1, .grupo2{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  flex-direction: column;
+  border: solid 1px transparent;
+}
+
+.grupo1 label p, .grupo2  label p {
+  font-family: monospace;
+  font-weight: bold;
+  padding-left: 7px;
+  margin: 0;
+  display: inline-block;
+}
+
+.Spetial{
+  display: flex;
+  align-items: flex-start;
+}
+
+
+/* Filtro Por Tipo De Origen */
+.containerOrigin{
+  margin-top: 20px;
+  width: 100%;
+  height: 8%;
+  margin-bottom: 30px;
+  border: solid 1px transparent;
+}
+
+.containerOrigin h3 {
+  text-align: left;
+  padding-bottom: 10px;
+  margin: 0;
+}
+
+.dBaseApi {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: solid 1px transparent;
+}
+
+
+/* Seccion De Orden */
+/* Alfabeticamente Y Por Comida Saludable */
+.containerOrden{
+  width: 100%;
+  height: 40%;
+  margin-top: 20px;
+  border: solid 1px transparent;
+}
+
+.containerOrden h3 {
+  text-align: left;
+  margin: 0;
+}
+
+
+.containerAbcHealthS{
+  width: 100%;
+  height: 80%;
+  display: flex;
+}
+
+.ordenABC, .ordenHealthScore {
+  width: 50%;
+  height: 100%;
+  border: solid 1px transparent;
+}
+
+.iconos, .iconosHealth{
+  width: 100%;
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border: solid 1px transparent;
+}
+.icono1, .icono2, .icono3, .icono4 {
+  object-fit: cover;
+  background-color: transparent;
+}
+
+
+
+.icono1, .icono2, .icono3, .icono4 {
+  width: 80%;
+  height: 20%;
+  color: #f5ededad;
+  background-color: #00000073;
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: 5px;
+  border-width: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.icono1, .icono2 {
+  background-color: #151515;
+  font-size: 1rem;
+}
+
+.icono4 {
+  padding-bottom: 30px;
+}
+
+.icono1:active, .icono2:active, .icono3:active, .icono4:active {
+  transform: scale(0.9);
+}
+
+

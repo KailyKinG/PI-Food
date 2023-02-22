@@ -1,7 +1,7 @@
 .containerRecetas{
   width: 100vw;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   min-height: 86.4vh;
   margin-left: 30px;
   margin-right: 30px;
@@ -9,5 +9,5 @@
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
-  border: solid 1px blue;
+  border: solid 1px transparent;
 }
