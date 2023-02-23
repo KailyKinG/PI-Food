@@ -6,7 +6,8 @@ const clave = require('../../apiKeyActual');
 let ruta = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${clave}&addRecipeInformation=true&number=100`;
 
 const getAllDietsApi = async () => {
-    const isEmpty = await Diets.findAll();
+    try {
+      const isEmpty = await Diets.findAll();
     if(!isEmpty.length){
       let recetas = ["vegetarian"];
       const peticion = await axios.get(ruta);
@@ -24,6 +25,11 @@ const getAllDietsApi = async () => {
       return dietas;
     }else{
       return isEmpty;
+    }
+    } catch (error) {
+      return {
+        "Error": error.message,
+      };
     }
 };
 

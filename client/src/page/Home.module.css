@@ -11,3 +11,17 @@
   flex-wrap: wrap;
   border: solid 1px transparent;
 }
+
+.containerRecetasErrorByName{
+  width: 100vw;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  min-height: 86.4vh;
+  margin-left: 30px;
+  margin-right: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border: solid 1px transparent;
+}

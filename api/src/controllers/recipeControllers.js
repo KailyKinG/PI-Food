@@ -158,9 +158,11 @@ const getFoodById = async (id) => {
 
 
 const createRecipe = async (name, image, summary, level, stepbystep, dietas) => {
-  if(!name || !image || !summary || !level || !stepbystep || !dietas.length){
+  if(!name || !summary || !level || !stepbystep || !dietas.length){
     arrojarError('Parametros Necesarios Incompletos');
   }
+
+  if(!image){ image = "https://cdn.pixabay.com/photo/2016/10/12/10/18/gear-1734005_1280.png"}
   const isExists = await Diets.findAll({
     where: {name: dietas}
   });

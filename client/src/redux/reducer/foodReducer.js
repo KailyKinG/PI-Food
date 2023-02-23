@@ -9,13 +9,15 @@ import {
   FILTER_BY_DIETS,
   FILTER_BY_ORIGIN,
   ORDER_ASC_DESC,
-  ORDER_HEALTH_SCORE } from "../actions/types";
+  ORDER_HEALTH_SCORE,
+  ERROR_BY_NAME } from "../actions/types";
 
   const initialState = {
     foods: [],
     allFoods: [],
     detailFood: {},
     diets: [],
+    errorByName: {},
   };
 
 
@@ -141,6 +143,12 @@ import {
         return {
           ...state,
           foods: healthScore,
+        }
+
+      case ERROR_BY_NAME:
+        return {
+          ...state,
+          errorByName: action.payload,
         }
 
       default:

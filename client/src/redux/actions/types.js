@@ -8,3 +8,4 @@ export const FILTER_BY_DIETS = "FILTER_BY_DIETS";
 export const FILTER_BY_ORIGIN = "FILTER_BY_ORIGIN";
 export const ORDER_ASC_DESC = "ORDER_ASC_DESC";
 export const ORDER_HEALTH_SCORE = "ORDER_HEALTH_SCORE"; 
+export const ERROR_BY_NAME = "ERROR_BY_NAME";

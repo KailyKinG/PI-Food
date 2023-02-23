@@ -112,18 +112,12 @@
   justify-content: space-around;
   border: solid 1px transparent;
 }
-.icono1, .icono2, .icono3, .icono4 {
-  object-fit: cover;
-  background-color: transparent;
-}
-
-
 
 .icono1, .icono2, .icono3, .icono4 {
   width: 80%;
   height: 20%;
   color: #f5ededad;
-  background-color: #00000073;
+  background-color: #151515;
   font-size: 2rem;
   font-weight: bold;
   border-radius: 5px;
@@ -135,7 +129,6 @@
 }
 
 .icono1, .icono2 {
-  background-color: #151515;
   font-size: 1rem;
 }
 

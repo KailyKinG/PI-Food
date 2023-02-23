@@ -12,7 +12,8 @@ import {
   FILTER_BY_DIETS,
   FILTER_BY_ORIGIN,
   ORDER_ASC_DESC,
-  ORDER_HEALTH_SCORE } from "./types";
+  ORDER_HEALTH_SCORE,
+  ERROR_BY_NAME } from "./types";
 
   /**
    * http://localhost:3001/api/recipes
@@ -24,31 +25,51 @@ import {
 
 //Action Para Pedir Todas Las Recetas
 //------------------------------------
-export const getAllFood = () => (dispatch) =>{
-  return fetch(`http://localhost:3001/api/recipes`)
-    .then((res) => res.json())
-    .then((data) => {
-      dispatch({
-        type: GET_ALL_FOOD,
-        payload: data,
-      });
-    })
-    .catch((error) => console.log(error));
+export const getAllFood = () => async (dispatch) =>{
+  try {
+    const response = await fetch(`http://localhost:3001/api/recipes`);
+    // console.log("response Es: ", response);
+    const data = await response.json();
+    // console.log("data Es: ", data);
+    dispatch({
+      type: GET_ALL_FOOD,
+      payload: data,
+    });
+  } catch (error) {
+    console.log(error);
+  }   
 };
 
 
 //Action Para Pedir Las Recetas Por Nombre
 //----------------------------------------
-export const getAllFoodByName = (name) => (dispatch) => {
-  return fetch(`http://localhost:3001/api/recipes?name=${name}`)
-    .then((res) => res.json())
-    .then((data) => {
+export const getAllFoodByName = (name) => async (dispatch) => {
+  let data;
+  try {
+    const response = await fetch(`http://localhost:3001/api/recipes?name=${name}`);
+    data = await response.json();
+    if(data.Error){
+      dispatch({
+        type: ERROR_BY_NAME,
+        payload: data, //data Es Un Objeto Con La Propiedad Error
+      });
+    }else{
+      const clearError = {}
       dispatch({
         type: GET_ALL_FOOD_BY_NAME,
         payload: data,
       });
-    })
-    .catch((error) => console.log(error));
+      dispatch({
+        type: ERROR_BY_NAME,
+        payload: clearError, 
+      });
+    }
+  } catch (error) {
+    console.log(error.message);
+  }
+
+
+   
 };
 
 

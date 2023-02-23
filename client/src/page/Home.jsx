@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import Recipe from "../components/Recipe";
 import Paginado from "../components/Paginado";
 import Filter from "../components/Filter";
+import Error from "../page/Error";
 import { useSelector } from "react-redux";
 
 import h from "./Home.module.css";
@@ -19,6 +20,7 @@ const HomeContainer = styled.div`
 const Home = (props) => {
   //Pedimos Todas Las Recetas De Nuestro 'store'
   const recipes = useSelector((state) => state.foods);
+  const errorByName = useSelector((state) => state.errorByName);
   const [currentPage, setCurrentPage] = useState(1);
   
   const recipesPorPage = 9;
@@ -30,30 +32,67 @@ const Home = (props) => {
     setCurrentPage(number);
   };
 
-  return (
-    <HomeContainer>
-      <Filter />
-      <div className={h.containerRecetas}>
-        {
-          currentRecipes.length && currentRecipes.map((recipe) => (
-            <Recipe
-              key={recipe.id}
-              id={recipe.id}
-              image={recipe.image}
-              name={recipe.name}
-              Diets={recipe.Diets}
-            />
-          ))
-        }
-      </div>
-      <Paginado
-        DB={recipes.length}
-        recipesPorPage={recipesPorPage}
-        paginado={paginado}
-        currentPage={currentPage}
-      />
-    </HomeContainer>
-  );
+  if(Object.keys(errorByName).length === 0){
+    return (
+      <HomeContainer>
+        <Filter />
+        <div className={h.containerRecetas}>
+          {
+            currentRecipes.length && currentRecipes.map((recipe) => (
+              <Recipe
+                key={recipe.id}
+                id={recipe.id}
+                image={recipe.image}
+                name={recipe.name}
+                Diets={recipe.Diets}
+              />
+            ))
+          }
+        </div>
+        <Paginado
+          DB={recipes.length}
+          recipesPorPage={recipesPorPage}
+          paginado={paginado}
+          currentPage={currentPage}
+        />
+      </HomeContainer>
+    );
+  }else{
+    return (
+      <HomeContainer>
+        <Filter />
+        <div className={h.containerRecetasErrorByName}>
+          <Error
+            errorByName={errorByName}
+          />
+          {/* {
+            currentRecipes.length && currentRecipes.map((recipe) => (
+              <Recipe
+                key={recipe.id}
+                id={recipe.id}
+                image={recipe.image}
+                name={recipe.name}
+                Diets={recipe.Diets}
+              />
+            ))
+          } */}
+        </div>
+        <Paginado
+          DB={recipes.length}
+          recipesPorPage={recipesPorPage}
+          paginado={paginado}
+          currentPage={currentPage}
+        />
+      </HomeContainer>
+    );
+  }
+  
 };
 
 export default Home;
+
+
+/**
+ * 
+  );
+ */
