@@ -13,7 +13,8 @@ import {
   FILTER_BY_ORIGIN,
   ORDER_ASC_DESC,
   ORDER_HEALTH_SCORE,
-  ERROR_BY_NAME } from "./types";
+  ERROR_BY_NAME,
+  ERROR_ALL_FOODS } from "./types";
 
   /**
    * http://localhost:3001/api/recipes
@@ -31,10 +32,22 @@ export const getAllFood = () => async (dispatch) =>{
     // console.log("response Es: ", response);
     const data = await response.json();
     // console.log("data Es: ", data);
-    dispatch({
-      type: GET_ALL_FOOD,
-      payload: data,
-    });
+    if(data.Error){
+      dispatch({
+        type: ERROR_ALL_FOODS,
+        payload: data,
+      });
+    }else{
+      const clearError = {};
+      dispatch({
+        type: GET_ALL_FOOD,
+        payload: data,
+      });
+      dispatch({
+        type: ERROR_ALL_FOODS,
+        payload: clearError,
+      });
+    }
   } catch (error) {
     console.log(error);
   }   
@@ -66,10 +79,7 @@ export const getAllFoodByName = (name) => async (dispatch) => {
     }
   } catch (error) {
     console.log(error.message);
-  }
-
-
-   
+  } 
 };
 
 
@@ -100,21 +110,39 @@ export const getAllDiets = () => (dispatch) => {
 
 export const createRecipes = (recipe) => async (dispatch) => {
   try {
-    const newRecipe = await axios.get({
-      method: 'post',
-      url: 'http://localhost:3001/api/recipes',
-      data: recipe,
+    // const newRecipe = await axios({
+    //   method: 'post',
+    //   url: 'http://localhost:3001/api/recipes',
+    //   data: recipe,
+    // });
+    // const data = await newRecipe.data;
+    const newRecipe = await fetch('http://localhost:3001/api/recipes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(recipe),
     });
-    Swal.fire({
-      title: 'Perfecto',
-      text: newRecipe.data.msg,
-      icon: 'success',
-      confirmButtonText: 'Ok'
-    });
-    dispatch({
-      type: CREATE_RECIPES,
-      payload: newRecipe
-    });
+    const data = await newRecipe.json();
+    if(data.Error){
+      Swal.fire({
+        title: 'Que Paso...?',
+        text: data.Error,
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      });
+    }else{
+      Swal.fire({
+        title: 'Perfecto',
+        text: data.msg,
+        icon: 'success',
+        confirmButtonText: 'Ok'
+      });
+      dispatch({
+        type: CREATE_RECIPES,
+        payload: newRecipe
+      });
+    }
   } catch (error) {
     console.log(error);
   }

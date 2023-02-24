@@ -10,7 +10,8 @@ import {
   FILTER_BY_ORIGIN,
   ORDER_ASC_DESC,
   ORDER_HEALTH_SCORE,
-  ERROR_BY_NAME } from "../actions/types";
+  ERROR_BY_NAME,
+  ERROR_ALL_FOODS } from "../actions/types";
 
   const initialState = {
     foods: [],
@@ -18,6 +19,7 @@ import {
     detailFood: {},
     diets: [],
     errorByName: {},
+    errorAllFoods: {},
   };
 
 
@@ -149,6 +151,12 @@ import {
         return {
           ...state,
           errorByName: action.payload,
+        }
+
+      case ERROR_ALL_FOODS:
+        return {
+          ...state,
+          errorAllFoods: action.payload,
         }
 
       default:

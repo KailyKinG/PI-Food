@@ -14,7 +14,7 @@ recipeRouter.get('/recipes', async (req, res) => {
     return res.status(200).json(result);
   } catch (error) {
     return res.status(404).json({
-      "Error": error.message,
+      'Error': error.message,
     });
   }
 });
@@ -36,12 +36,12 @@ recipeRouter.get('/recipes/:idRecipe', async (req, res) => {
 //Ruta Para Crear Una Nueva Receta
 //--------------------------------
 recipeRouter.post('/recipes', async (req, res) => {
-  const { name, image, summary, level, stepbystep, dietas,  } = req.body;
+  const { name, image, summary, level, stepbystep, dietas } = req.body;
   try {
     const result = await createRecipe(name, image, summary, level, stepbystep, dietas);
     return res.status(201).json({msg: result});
   } catch (error) {
-    return res.status(404).json({'Error': error.message});
+    return res.status(404).json({Error: error.message});
   }
 });
 
