@@ -20,6 +20,7 @@ const HomeContainer = styled.div`
 const Home = (props) => {
   //Pedimos Todas Las Recetas De Nuestro 'store'
   const recipes = useSelector((state) => state.foods);
+  console.log(recipes);
   const errorByName = useSelector((state) => state.errorByName);
   const [currentPage, setCurrentPage] = useState(1);
   

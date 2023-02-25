@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { createRecipes } from "../redux/actions/actions";
+import validate from "./validate";
 import { useDispatch } from "react-redux";
 
 import f from "./Form.module.css";
@@ -24,8 +25,9 @@ const EtiquetaParrafo = styled.p`
 `;
 
 
-//Inicio Del Componente Funcional 'Form'
-///////////////////////////////////////
+//////////////////////////////////////////
+//Inicio Del Componente Funcional 'Form'//
+/////////////////////////////////////////
 const Form = (props) => {
   const dispatch = useDispatch();
   let idPasoAPaso = 0;
@@ -45,8 +47,10 @@ const Form = (props) => {
     summary: "",
     level: "",
     step:"",
-    dietas: [],
+    dietas: "",
   });
+
+  console.log(inputs.dietas);
 
 
   const handlerTextChange = (e) => {
@@ -56,6 +60,10 @@ const Form = (props) => {
       ...inputs,
       [nombre]: valor
     });
+    setError(validate({
+      ...inputs,
+      [nombre]: valor
+    }));
   };
   
 
@@ -65,6 +73,10 @@ const Form = (props) => {
       ...inputs,
       dietas: [...inputs.dietas, dieta],
     });
+    setError(validate({
+      ...inputs,
+      dietas: [...inputs.dietas, dieta],
+    }));
   };
 
 
@@ -112,26 +124,26 @@ const Form = (props) => {
               <label htmlFor="">
                 <input type="text" name="name" value={inputs.name} onChange={(e) => handlerTextChange(e)} placeholder="Name" />
               </label>
-              <EtiquetaParrafo></EtiquetaParrafo>
+              <EtiquetaParrafo className={f.danger}>{error.name}</EtiquetaParrafo>
             </div>
             <div>
               <label htmlFor="">
                 <input type="text" name="image" value={inputs.image} onChange={(e) => handlerTextChange(e)} placeholder="Url Image" />
               </label>
-              <EtiquetaParrafo></EtiquetaParrafo>
+              <EtiquetaParrafo className={f.danger}>{error.image}</EtiquetaParrafo>
             </div>
             <div>
               <label htmlFor="">
-                <input type="number" name="level" value={inputs.level} onChange={(e) => handlerTextChange(e)} placeholder="Health Score"/>
+                <input type="text" name="level" value={inputs.level} onChange={(e) => handlerTextChange(e)} placeholder="Health Score"/>
               </label>
-              <EtiquetaParrafo></EtiquetaParrafo>
+              <EtiquetaParrafo className={f.danger}>{error.level}</EtiquetaParrafo>
             </div>
           </div>
           <div className={f.info2}>
             <label htmlFor="">
               <textarea cols="45" rows="6" name="summary" value={inputs.summary} onChange={(e) => handlerTextChange(e)} placeholder="Summary Your Recipe..."></textarea>
             </label>
-            <EtiquetaParrafo></EtiquetaParrafo>
+            <EtiquetaParrafo className={f.danger}>{error.summary}</EtiquetaParrafo>
           </div>
         </div>
 
@@ -142,7 +154,7 @@ const Form = (props) => {
           <label>
             <input type="text" name="step" value={inputs.step} onChange={(e) => handlerTextChange(e)} placeholder="step one..." />
           </label>
-          <EtiquetaParrafo></EtiquetaParrafo>
+          <EtiquetaParrafo className={f.danger}>{error.step}</EtiquetaParrafo>
         </div>
 
         <hr />
@@ -201,12 +213,23 @@ const Form = (props) => {
               </label>
             </div>
           </div>
-          <EtiquetaParrafo></EtiquetaParrafo>
+          <EtiquetaParrafo className={f.danger}>{error.dietas}</EtiquetaParrafo>
         </div>
 
         <div className={f.containerButton}>
-          <button className={f.sendBoton}>Create</button>
-        </div>
+          {/* <button disabled={Object.keys(error).length > 0 ? true : false} className={Object.keys(error).length > 0 ? f.botonOff : f.sendBoton}>Create</button> */}
+          {
+            Object.keys(error).length > 0 ?
+              <button
+                disabled={true}
+                className={f.botonOff}
+              >Create</button> :
+              <button
+                disabled={false}
+                className={f.sendBoton}
+              >Create</button>
+          }
+        </div>  
       </div>
       
       {/* Div De Relleno Para Ajustar El Formulario */}

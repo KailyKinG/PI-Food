@@ -147,7 +147,7 @@
   padding: 20px 0;
   border: solid 1px transparent;
 }
-.sendBoton{
+.sendBoton, .botonOff{
   width: 20%;
   height: 3rem;
   border: none;
@@ -157,6 +157,10 @@
   border-radius: 10px;
   background-color: rgba(0, 139, 139, 0.763);
   color: rgba(255, 255, 255, 0.603);
+}
+
+.sendBoton {
+  cursor: pointer;
 }
 
 .sendBoton:active {
@@ -170,6 +174,13 @@
 }
 
 
+/* Boton Disabled */
+.botonOff {
+  background-color: rgba(0, 0, 0, 0.647);
+  cursor: no-drop;
+}
+
+
 /* DivRelleno */
 /* ////////// */
 .divRelleno{
@@ -177,3 +188,12 @@
   height: max-content;
   border: solid 1px transparent;
 }
+
+
+/* Clases De Validacion */
+/* //////////////////// */
+.danger {
+  color: red;
+}
+
+/* .warning{} */

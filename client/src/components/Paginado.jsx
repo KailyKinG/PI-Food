@@ -25,7 +25,7 @@ const Paginado = (props) => {
     <nav className={p.componentPaginado}>
       <ContainerUL>
         {
-          pagesNumber.length && pagesNumber.map((number) => (
+          pagesNumber?.map((number) => (
               <li className={number === currentPage ? p.stylesLiactive : p.stylesLi } key={number} onClick={() => paginado(number)}>{number}</li>
           ))
         }
