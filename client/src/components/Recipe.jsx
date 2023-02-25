@@ -30,13 +30,19 @@ const Recipe = (props) => {
         <h3>{name}</h3>
       </Link>
       <div>
-        <ContainerUl>
-          {
-            Diets.length && Diets.map((elem) => (
-              <li key={elem.name}>{elem.name}</li>
-            ))
-          }
-        </ContainerUl>
+        {
+          Diets.length ? 
+          <ContainerUl>
+            {
+              Diets.map((elem) => (
+                <li key={elem.name}>{elem.name}</li>
+              ))
+            }
+          </ContainerUl>
+          : <ContainerUl>
+            <li><p>Sin Recetas</p></li>
+          </ContainerUl>
+        }
       </div>
     </div>
   );

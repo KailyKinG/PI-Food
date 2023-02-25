@@ -39,7 +39,7 @@ const Home = (props) => {
         <Filter />
         <div className={h.containerRecetas}>
           {
-            currentRecipes.length && currentRecipes.map((recipe) => (
+            currentRecipes?.map((recipe) => (
               <Recipe
                 key={recipe.id}
                 id={recipe.id}
@@ -66,17 +66,6 @@ const Home = (props) => {
           <Error
             errorByName={errorByName}
           />
-          {/* {
-            currentRecipes.length && currentRecipes.map((recipe) => (
-              <Recipe
-                key={recipe.id}
-                id={recipe.id}
-                image={recipe.image}
-                name={recipe.name}
-                Diets={recipe.Diets}
-              />
-            ))
-          } */}
         </div>
         <Paginado
           DB={recipes.length}
@@ -92,8 +81,3 @@ const Home = (props) => {
 
 export default Home;
 
-
-/**
- * 
-  );
- */
