@@ -11,7 +11,8 @@ import {
   ORDER_ASC_DESC,
   ORDER_HEALTH_SCORE,
   ERROR_BY_NAME,
-  ERROR_ALL_FOODS } from "../actions/types";
+  ERROR_ALL_FOODS,
+  ERROR_GET_DETAIL } from "../actions/types";
 
   const initialState = {
     foods: [],
@@ -20,6 +21,7 @@ import {
     diets: [],
     errorByName: {},
     errorAllFoods: {},
+    errorGetDetail: {},
   };
 
 
@@ -158,6 +160,12 @@ import {
           ...state,
           errorAllFoods: action.payload,
         }
+
+      case ERROR_GET_DETAIL:
+        return {
+          ...state,
+          errorGetDetail: action.payload,
+        } 
 
       default:
         return state;

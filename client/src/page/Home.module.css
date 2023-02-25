@@ -12,7 +12,7 @@
   border: solid 1px transparent;
 }
 
-.containerRecetasErrorByName{
+.containerRecetasError{
   width: 100vw;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -23,5 +23,29 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  border: solid 1px transparent;
+}
+
+
+/* Seccion De Error */
+.errorTitle {
+  color: rgba(255, 255, 255, 0.711);
+  /* color: black; */
+}
+
+.errorContainerImagen{
+  width: 18.75rem;
+  height: 18.75rem;
+  border: solid 1px transparent;
+}
+.errorImagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.errorRelleno {
+  width: 15rem;
+  height: 5rem;
   border: solid 1px transparent;
 }

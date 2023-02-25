@@ -2,11 +2,11 @@ import React, {useState} from "react";
 import Recipe from "../components/Recipe";
 import Paginado from "../components/Paginado";
 import Filter from "../components/Filter";
-import Error from "../page/Error";
 import { useSelector } from "react-redux";
 
 import h from "./Home.module.css";
 import styled from "styled-components";
+import SubmarinoMalo from "../assets/Imagenes/Submarino-malo.png";
 
 const HomeContainer = styled.div`
   background-color: #000000d9;
@@ -17,11 +17,21 @@ const HomeContainer = styled.div`
   border: solid 1px transparent;
 `;
 
+const ErrorContainer = styled.div`
+  width: 37.5rem;
+  min-height: 37.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: solid 1px transparent;
+`;
+
 const Home = (props) => {
   //Pedimos Todas Las Recetas De Nuestro 'store'
   const recipes = useSelector((state) => state.foods);
-  console.log(recipes);
   const errorByName = useSelector((state) => state.errorByName);
+  const errorAllFoods = useSelector((state) => state.errorAllFoods);
   const [currentPage, setCurrentPage] = useState(1);
   
   const recipesPorPage = 9;
@@ -33,7 +43,7 @@ const Home = (props) => {
     setCurrentPage(number);
   };
 
-  if(Object.keys(errorByName).length === 0){
+  if(Object.keys(errorByName).length === 0 && Object.keys(errorAllFoods).length === 0){
     return (
       <HomeContainer>
         <Filter />
@@ -62,10 +72,14 @@ const Home = (props) => {
     return (
       <HomeContainer>
         <Filter />
-        <div className={h.containerRecetasErrorByName}>
-          <Error
-            errorByName={errorByName}
-          />
+        <div className={h.containerRecetasError}>
+          <ErrorContainer>
+            <h1 className={h.errorTitle}>{(errorByName.Error || errorAllFoods.Error)}</h1>
+            <div className={h.errorContainerImagen}>
+              <img className={h.errorImagen} src={SubmarinoMalo} alt="Imagen Not Found" />
+            </div>
+            <div className={h.errorRelleno}></div>
+          </ErrorContainer>
         </div>
         <Paginado
           DB={recipes.length}

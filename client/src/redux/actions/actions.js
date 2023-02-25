@@ -13,7 +13,8 @@ import {
   ORDER_ASC_DESC,
   ORDER_HEALTH_SCORE,
   ERROR_BY_NAME,
-  ERROR_ALL_FOODS } from "./types";
+  ERROR_ALL_FOODS,
+  ERROR_GET_DETAIL } from "./types";
 
   /**
    * http://localhost:3001/api/recipes
@@ -88,10 +89,22 @@ export const getFoodById = (id) => (dispatch) => {
   return fetch(`http://localhost:3001/api/recipes/${id}`)
     .then((res) => res.json())
     .then((data) => {
-      dispatch({
-        type: GET_FOOD_BY_ID,
-        payload: data,
-      });
+      if(data.Error){
+        dispatch({
+          type: ERROR_GET_DETAIL,
+          payload: data,
+        });
+      }else{
+        const clearError = {} 
+        dispatch({
+          type: GET_FOOD_BY_ID,
+          payload: data,
+        });
+        dispatch({
+          type: ERROR_GET_DETAIL,
+          payload: clearError,
+        });
+      }
     })
     .catch((error) => console.log(error));
 };
