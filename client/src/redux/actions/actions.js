@@ -122,12 +122,6 @@ export const getAllDiets = () => (dispatch) => {
 
 export const createRecipes = (recipe) => async (dispatch) => {
   try {
-    // const newRecipe = await axios({
-    //   method: 'post',
-    //   url: 'http://localhost:3001/api/recipes',
-    //   data: recipe,
-    // });
-    // const data = await newRecipe.data;
     const newRecipe = await fetch('http://localhost:3001/api/recipes', {
       method: 'POST',
       headers: {

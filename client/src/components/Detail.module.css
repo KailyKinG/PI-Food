@@ -1,0 +1,198 @@
+.relleno{
+  width: 245px;
+}
+
+/* Con Detail Retornado */
+/* //////////////////// */
+.detailContainerDetail, .detailContainerLoading {
+  background: url('https://img.freepik.com/foto-gratis/negro-textura-concreto-sucio_1194-7661.jpg?w=2000&t=st=1677372668~exp=1677373268~hmac=b09c69af1c35c00e9e58643600e93e09bb4860af8edc0ce41282cabb41667a96');
+}
+
+.detailContainerDetail {
+  font-family: monospace;
+  display: flex;
+}
+
+.detailBodega, 
+.containerLoading{
+  width: 74.5%;
+  height: 100%;
+  border: 1px solid transparent;
+}
+
+.detailBodega{
+  display: flex;
+}
+
+.group1, .group2{
+  width: 50%;
+  height: 100%;
+  border: solid 1px transparent;
+}
+
+/* .group1{} */
+/* .group2{} */
+
+                                
+.group1 .imageAndTitle, .group1 .containerSummary{
+  width: 100%;
+  color: white;
+  border: solid 1px transparent;
+}
+
+.group1 .imageAndTitle {
+  height: 40%;
+  display: flex;
+}
+
+.group1 .containerSummary{
+  height: 60%;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.containerImageRecipe{
+  width: 60%;
+  height: 100%;
+  padding: 20px;
+  border: solid 1px transparent;
+}
+
+.imageRecipe{
+  width: 100%;
+  height: 18.75rem;
+  object-fit: cover;
+  border-radius: 10px;
+  border: solid 1px black;
+  box-shadow: 0 0 5px 2px white;
+}
+
+.imageAndTitle h2 {
+  width: 40%;
+  font-size: 2rem;
+  padding: 0px 10px 0px 10px;
+}
+
+
+.stepsContainer{
+  width: 100%;
+  height: 70%;
+  color: white;
+  padding: 0 20px 0 20px;
+  text-align: left;
+  border: solid 1px transparent;
+}
+
+
+.levelDietas{
+  width: 100%;
+  height: 30%;
+  display: flex;
+  border: solid 1px transparent;
+}
+
+.healthScore, .dietas{
+  width: 100%;
+  height: 100%;
+  color: white;
+  border: solid 1px transparent;
+}
+
+.healthScore{
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.healthScore div {
+  width: 100%;
+  height: max-content;
+  border: solid 1px transparent;
+}
+
+.healthScore div span {
+  font-size: 7rem;
+  font-weight: bold;
+}
+
+.dietas {
+  padding-left: 20px; 
+  padding-right: 20px;
+  text-align: left;
+}
+
+.dietasLista{
+  padding-left: 30px;
+  font-size: 1rem;
+  font-family: monospace;
+  font-weight: bold;
+  list-style: decimal;
+}
+
+
+/* Con Loading Activo */
+/* ////////////////// */
+.detailContainerLoading{
+  display: flex;
+}
+
+.containerLoading{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagen{
+  width: 9.375rem;
+  border: solid 1px white;
+  border-radius: 50%;
+  box-shadow: 0 0 7px 0 white;
+  animation-name: girar;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.title {
+  color: white;
+  letter-spacing: 3px;
+  animation-name: loading;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes girar{
+  0% {
+    transform: rotate(0deg);
+  }
+  50%{
+    transform: rotate(180deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loading {
+  0% {
+    letter-spacing: 1px;
+  }
+  50%{
+    transform: scale(1.2);
+    letter-spacing: 3px;
+  }
+  100% {
+    letter-spacing: 1px;
+  }
+}
+
+
+/* Con Error */
+/* ///////// */
+/* .detailContainerError{} */

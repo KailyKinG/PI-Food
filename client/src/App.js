@@ -18,7 +18,7 @@ function App(props) {
   useEffect(() => {
     getAllFood();
     getAllDiets();
-  });
+  },[getAllFood, getAllDiets]);
 
   return (
     <div className="App">

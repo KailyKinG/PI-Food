@@ -1,5 +1,4 @@
 import React from "react";
-// import { NavLink } from "react-router-dom";
 
 import p from "./Paginado.module.css";
 import styled from "styled-components";

@@ -86,7 +86,7 @@ const Form = (props) => {
     // verificar que en inputs.dietas; no sean valores repetidos
     const stepByStep = {
       number: idPasoAPaso += 1,
-      name: inputs.step,
+      step: inputs.step,
     };
     setInputs({
       ...inputs,
@@ -217,7 +217,6 @@ const Form = (props) => {
         </div>
 
         <div className={f.containerButton}>
-          {/* <button disabled={Object.keys(error).length > 0 ? true : false} className={Object.keys(error).length > 0 ? f.botonOff : f.sendBoton}>Create</button> */}
           {
             Object.keys(error).length > 0 ?
               <button
