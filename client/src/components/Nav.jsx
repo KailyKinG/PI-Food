@@ -30,7 +30,7 @@ const Nav = (props) => {
           <img className={n.imagen} src={Logo} alt="Logo"/>
         </Link>
         <NavLink className={n.linkh4} to='/home'>
-          <h4>Henry Food App</h4>
+          <h4>Henry Carta AppFoods</h4>
         </NavLink>
       </div>
 

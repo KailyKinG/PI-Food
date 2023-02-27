@@ -63,11 +63,11 @@ const Landing = (props) => {
             <div className={l.groupParrafos}>
               <p>
               Como debe de ser. Desde la huerta, desde el campo, de donde surge el fruto… a tu mesa.
-Para hacer las mejores recetas, se necesitan los mejores productos. De las manos del agricultor, quien de la tierra sabe. tanto a cultivarla, a tratarla, tanto a extraer de la tierra la fruta, como a guiar el  camino para que sea posible que la fruta misma llegue a ti.  
+Para hacer las mejores recetas, se necesitan los mejores productos. De las manos del agricultor, quien de la tierra sabe. tanto a cultivarla, a tratarla, tanto a extraer de la tierra la fruta, como a guiar el  camino para que sea posible que la fruta misma llegue a tu hogar.  
               </p>
               <p>
               De la misma forma. Te hacemos llegar esta carta con las mejores recetas que puedas tener.
-Con ellas podrás hacer platos ricos y saludables, cuentas con una gran variedad de recetas
+Con ellas podrás hacer platos ricos y saludables, cuentas con una gran variedad de estas
 que estarán a tu disposición. 
               </p>
             </div>
