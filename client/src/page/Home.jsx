@@ -1,8 +1,9 @@
-import React, {useState} from "react";
+import React, {useState } from "react";
 import Recipe from "../components/Recipe";
 import Paginado from "../components/Paginado";
 import Filter from "../components/Filter";
 import { useSelector } from "react-redux";
+import Loading from "../assets/Imagenes/Loading.png";
 
 import h from "./Home.module.css";
 import styled from "styled-components";
@@ -28,46 +29,72 @@ const ErrorContainer = styled.div`
 `;
 
 const Home = (props) => {
+
   //Pedimos Todas Las Recetas De Nuestro 'store'
   const recipes = useSelector((state) => state.foods);
   const errorByName = useSelector((state) => state.errorByName);
   const errorAllFoods = useSelector((state) => state.errorAllFoods);
   const [currentPage, setCurrentPage] = useState(1);
-  
+
   const recipesPorPage = 9;
   const indexOfLastPage = currentPage * recipesPorPage;      // 9
   const indexOfFirstPage = indexOfLastPage - recipesPorPage; // 0
   const currentRecipes = [...recipes].slice(indexOfFirstPage, indexOfLastPage);
+
 
   const paginado = (number) => {
     setCurrentPage(number);
   };
 
   if(Object.keys(errorByName).length === 0 && Object.keys(errorAllFoods).length === 0){
-    return (
-      <HomeContainer>
-        <Filter />
-        <div className={h.containerRecetas}>
-          {
-            currentRecipes?.map((recipe) => (
-              <Recipe
-                key={recipe.id}
-                id={recipe.id}
-                image={recipe.image}
-                name={recipe.name}
-                Diets={recipe.Diets}
-              />
-            ))
-          }
-        </div>
-        <Paginado
-          DB={recipes.length}
-          recipesPorPage={recipesPorPage}
-          paginado={paginado}
-          currentPage={currentPage}
-        />
-      </HomeContainer>
-    );
+    if(recipes.length !== 0){
+      return (
+        <HomeContainer>
+          <Filter />
+          <div className={h.containerRecetas}>
+            {
+              currentRecipes?.map((recipe) => (
+                <Recipe
+                  key={recipe.id}
+                  id={recipe.id}
+                  image={recipe.image}
+                  name={recipe.name}
+                  Diets={recipe.Diets}
+                />
+              ))
+            }
+          </div>
+          <Paginado
+            DB={recipes.length}
+            recipesPorPage={recipesPorPage}
+            paginado={paginado}
+            currentPage={currentPage}
+          />
+        </HomeContainer>
+      );
+    }else{
+      return (
+        <HomeContainer>
+          <Filter />
+          <div className={h.containerRecetasError}>
+            <div className={h.containerLoading}>
+              <div>
+                <img className={h.imagenLoading} src={Loading} alt="Imagen De Un Plato De Ensaladas; Loading..." />
+              </div>
+              <div>
+                <h2 className={h.titleLoading}>Loading......</h2>
+              </div>
+            </div>
+          </div>
+          <Paginado
+            DB={recipes.length}
+            recipesPorPage={recipesPorPage}
+            paginado={paginado}
+            currentPage={currentPage}
+          />
+        </HomeContainer>
+      );
+    }
   }else{
     return (
       <HomeContainer>

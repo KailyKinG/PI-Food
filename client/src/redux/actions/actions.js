@@ -97,14 +97,21 @@ export const getFoodById = (id) => (dispatch) => {
       }else{
         const clearError = {} 
         dispatch({
-          type: GET_FOOD_BY_ID,
-          payload: data,
-        });
-        dispatch({
           type: ERROR_GET_DETAIL,
           payload: clearError,
         });
+        dispatch({
+          type: GET_FOOD_BY_ID,
+          payload: data,
+        });
       }
+
+      //Seccion Solo Para Pruebas
+      ///////////////////////////
+      // dispatch({
+      //   type: ERROR_GET_DETAIL,
+      //   payload: {Error: "Algo Salio Mal"}
+      // });
     })
     .catch((error) => console.log(error));
 };

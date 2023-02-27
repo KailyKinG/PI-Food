@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { getFoodById } from "../redux/actions/actions";
 import SubmarinoMalo from "../assets/Imagenes/Submarino-malo.png";
-import foodRestaurant from "../assets/Imagenes/food-restaurant.png";
 import Loading from "../assets/Imagenes/Loading.png";
 import { connect } from "react-redux";
 
@@ -103,7 +102,13 @@ const Detail = (props) => {
     }else{
       return(
         <DetailContainer className={d.detailContainerError}>
-          <h1>Este Es El Componente 'Detail' Con {errorGetDetail.Error}</h1>
+          <div className={d.relleno}></div>
+          <div className={d.containerError}>
+            <div className={d.titleAndImageError}>
+              <h1>{errorGetDetail.Error}</h1>
+              <img className={d.imageError} src={SubmarinoMalo} alt="Icono De Error 'Sudmarino Malo'" />
+            </div>
+          </div>
         </DetailContainer>
       );
     }
@@ -130,6 +135,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Detail);
  * ////////////////////////////////
  * https://img.freepik.com/foto-gratis/vista-anterior-verduras-frescas-picadas-enteras-tabla-cortar-tazones-especias-toalla-blanca-sobre-superficie-negra_179666-42337.jpg?w=2000&t=st=1677347915~exp=1677348515~hmac=bed42a1b5d30f8958e874e6348a48e967a4b20ad025bdc4b269bfbb114ed2627
  */
+
 
 
 /**

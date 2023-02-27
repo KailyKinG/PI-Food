@@ -27,6 +27,66 @@
 }
 
 
+/* Seccion Del Loading */
+/* Con Loading Activo */
+/* ////////////////// */
+.detailContainerLoading{
+  display: flex;
+}
+
+.containerLoading{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagenLoading{
+  width: 9.375rem;
+  border: solid 1px white;
+  border-radius: 50%;
+  box-shadow: 0 0 7px 0 white;
+  animation-name: girar;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.titleLoading {
+  color: white;
+  letter-spacing: 3px;
+  animation-name: loading;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes girar{
+  0% {
+    transform: rotate(0deg);
+  }
+  50%{
+    transform: rotate(180deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loading {
+  0% {
+    letter-spacing: 1px;
+  }
+  50%{
+    transform: scale(1.2);
+    letter-spacing: 3px;
+  }
+  100% {
+    letter-spacing: 1px;
+  }
+}
+
+
 /* Seccion De Error */
 .errorTitle {
   color: rgba(255, 255, 255, 0.711);

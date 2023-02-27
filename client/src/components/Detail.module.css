@@ -1,10 +1,13 @@
 .relleno{
   width: 245px;
+  border: solid 1px transparent;
 }
 
 /* Con Detail Retornado */
 /* //////////////////// */
-.detailContainerDetail, .detailContainerLoading {
+.detailContainerDetail, 
+.detailContainerLoading,
+.detailContainerError {
   background: url('https://img.freepik.com/foto-gratis/negro-textura-concreto-sucio_1194-7661.jpg?w=2000&t=st=1677372668~exp=1677373268~hmac=b09c69af1c35c00e9e58643600e93e09bb4860af8edc0ce41282cabb41667a96');
 }
 
@@ -14,7 +17,8 @@
 }
 
 .detailBodega, 
-.containerLoading{
+.containerLoading,
+.containerError {
   width: 74.5%;
   height: 100%;
   border: 1px solid transparent;
@@ -84,6 +88,7 @@
   color: white;
   padding: 0 20px 0 20px;
   text-align: left;
+  font-weight: bold;
   border: solid 1px transparent;
 }
 
@@ -126,11 +131,11 @@
 }
 
 .dietasLista{
-  padding-left: 30px;
+  /* padding-left: 30px; */
   font-size: 1rem;
   font-family: monospace;
   font-weight: bold;
-  list-style: decimal;
+  list-style: circle;
 }
 
 
@@ -196,3 +201,24 @@
 /* Con Error */
 /* ///////// */
 /* .detailContainerError{} */
+.containerError{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.titleAndImageError{
+  width: 80%;
+  color: rgba(255, 255, 255, 0.798);
+  height: max-content;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid 1px transparent;
+}
+
+.imageError{
+  width: 30%;
+  opacity: 0.9;
+  border: solid 1px transparent;
+}

@@ -8,17 +8,18 @@ import Detail from "./components/Detail";
 import './App.css';
 import {Route, Switch, useLocation } from "react-router-dom";
 import { getAllFood, getAllDiets } from "./redux/actions/actions";
-import { connect } from "react-redux";
-import { useEffect } from "react";
+import { useEffect} from "react";
+import { useDispatch } from "react-redux";
 
 function App(props) {
-  const {getAllFood, getAllDiets } = props;
+  // const {getAllFood, getAllDiets } = props;
+  const dispatch = useDispatch();
   const location = useLocation();
 
   useEffect(() => {
-    getAllFood();
-    getAllDiets();
-  },[getAllFood, getAllDiets]);
+    dispatch(getAllFood());
+    dispatch(getAllDiets());
+  },[dispatch]);
 
   return (
     <div className="App">
@@ -27,7 +28,7 @@ function App(props) {
       }
       <Switch>
         <Route exact path='/' component={Landing} />
-        <Route exact path='/home' component={Home} />
+        <Route exact path='/home' component={Home}/> {/* Home */}
         <Route exact path='/about' component={About} />
         <Route exact path='/form' component={Form} />
         <Route exact path='/detail/:idDetail' render={({match}) => <Detail match={match.params.idDetail}/>} />
@@ -37,12 +38,5 @@ function App(props) {
   );
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getAllFood: () => dispatch(getAllFood()),
-    getAllDiets: () => dispatch(getAllDiets())
-  }
-};
-
-export default connect(null, mapDispatchToProps)(App);
+export default App;
 
