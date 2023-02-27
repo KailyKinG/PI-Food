@@ -8,7 +8,7 @@ const { getAllFood, getFoodById, createRecipe } = require('../controllers/recipe
 //Ruta Para Devolver Todas Las Recipes o Devolver Por El Query 'name'
 //-------------------------------------------------------------------
 recipeRouter.get('/recipes', async (req, res) => {
-  let { name } = req.query;
+  const { name } = req.query;
   try {
     const result = await getAllFood(name);
     return res.status(200).json(result);

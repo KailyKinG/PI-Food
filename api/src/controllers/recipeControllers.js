@@ -13,7 +13,7 @@ const clave = require('../../apiKeyActual');
 const getAllFoodApiByName = (name, data) => {
   let recetas = getRecipesDetails(data);
   recetas = recetas.filter((food) => {
-   return food.name?.toLowerCase().includes(name);
+   return food.name.toLowerCase().includes(name);
   });
   return recetas;
 };
