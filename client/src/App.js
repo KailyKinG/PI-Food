@@ -19,7 +19,7 @@ function App(props) {
   useEffect(() => {
     dispatch(getAllFood());
     dispatch(getAllDiets());
-  },[dispatch]);
+  });
 
   return (
     <div className="App">
