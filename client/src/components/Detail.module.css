@@ -34,8 +34,6 @@
   border: solid 1px transparent;
 }
 
-/* .group1{} */
-/* .group2{} */
 
                                 
 .group1 .imageAndTitle, .group1 .containerSummary{
@@ -57,6 +55,11 @@
   flex-direction: column;
   justify-content: center;
   text-align: left;
+  font-weight: bold;
+}
+
+.containerSummary p {
+  line-height: 1.2;
 }
 
 .containerImageRecipe{

@@ -49,7 +49,7 @@ const Detail = (props) => {
                 </div>
                 <div className={d.containerSummary}>
                   <h2>Summary</h2>
-                  <p>{detailFood.summary}</p>
+                  <p dangerouslySetInnerHTML={{__html: detailFood.summary}}></p>
                 </div>
               </div>
               <div className={d.group2}>
