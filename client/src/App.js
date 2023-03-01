@@ -9,21 +9,15 @@ import './App.css';
 import {Route, Switch, useLocation } from "react-router-dom";
 import { getAllFood, getAllDiets } from "./redux/actions/actions";
 import { useEffect, useState} from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 function App(props) {
+  const creadas = useSelector((state) => state.creadas);
   const [currentPage, setCurrentPage] = useState(1);                            //props
-
-
-  // const recipesPorPage = 9;                                                     //props
-  // const indexOfLastPage = currentPage * recipesPorPage;      // 9
-  // const indexOfFirstPage = indexOfLastPage - recipesPorPage; // 0
-  // const currentRecipes = [...recipes].slice(indexOfFirstPage, indexOfLastPage); //props
 
   const paginado = (number) => {                                                //props
     setCurrentPage(number);
   };
-
 
   const dispatch = useDispatch();
   const location = useLocation();
@@ -31,7 +25,7 @@ function App(props) {
   useEffect(() => {
     dispatch(getAllFood());
     dispatch(getAllDiets());
-  });
+  }, [creadas, dispatch]);
 
   return (
     <div className="App">

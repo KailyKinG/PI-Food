@@ -32,7 +32,7 @@ const Detail = (props) => {
     detailFood.id == match && setIsLoading(false);
   },[getFoodById, match, detailFood.id])//detailFood.id]
 
-  console.log(detailFood);
+  // console.log(detailFood);
 
     if(Object.keys(errorGetDetail).length === 0){
       if(!isLoading){
@@ -53,7 +53,7 @@ const Detail = (props) => {
                     <ContainerUL className={d.dietasLista}>
                       {
                         detailFood.Diets?.map((elem) => (
-                          <li key={elem.number}>{elem.name}</li>
+                          <li key={elem.number + elem.name}>{elem.name}</li>
                         ))
                       }
                     </ContainerUL>
@@ -92,7 +92,7 @@ const Detail = (props) => {
       }
       return(
         <DetailContainer className={d.detailContainerLoading}>
-          <div className={d.relleno}></div>
+          <div className={d.rellenoLoadingError}></div>
           <div className={d.containerLoading}>
             <div>
               <img className={d.imagen} src={Loading} alt="Imagen De Un Plato De Ensaladas; Loading..." />
@@ -106,7 +106,7 @@ const Detail = (props) => {
     }else{
       return(
         <DetailContainer className={d.detailContainerError}>
-          <div className={d.relleno}></div>
+          <div className={d.rellenoLoadingError}></div>
           <div className={d.containerError}>
             <div className={d.titleAndImageError}>
               <h1>{errorGetDetail.Error}</h1>
@@ -150,4 +150,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(Detail);
  * https://fondosmil.com/fondo/27758.jpg
  * 
  * https://img.freepik.com/foto-gratis/negro-textura-concreto-sucio_1194-7661.jpg?w=2000&t=st=1677372668~exp=1677373268~hmac=b09c69af1c35c00e9e58643600e93e09bb4860af8edc0ce41282cabb41667a96
- */
+ 
+  https://i.postimg.cc/sgJBDjhd/textura-pared-grunge.jpg
+*/

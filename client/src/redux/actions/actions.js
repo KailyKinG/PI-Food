@@ -97,12 +97,12 @@ export const getFoodById = (id) => (dispatch) => {
       }else{
         const clearError = {} 
         dispatch({
-          type: ERROR_GET_DETAIL,
-          payload: clearError,
-        });
-        dispatch({
           type: GET_FOOD_BY_ID,
           payload: data,
+        });
+        dispatch({
+          type: ERROR_GET_DETAIL,
+          payload: clearError,
         });
       }
 
@@ -137,6 +137,7 @@ export const createRecipes = (recipe) => async (dispatch) => {
       body: JSON.stringify(recipe),
     });
     const data = await newRecipe.json();
+    console.log(data);
     if(data.Error){
       Swal.fire({
         title: 'Que Paso...?',
@@ -153,7 +154,7 @@ export const createRecipes = (recipe) => async (dispatch) => {
       });
       dispatch({
         type: CREATE_RECIPES,
-        payload: newRecipe
+        payload: data,
       });
     }
   } catch (error) {

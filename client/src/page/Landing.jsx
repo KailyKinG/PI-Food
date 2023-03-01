@@ -10,7 +10,7 @@ import styled from "styled-components";
 const LandingContainer = styled.div`
   width: 100vw;
   height: 100vh;
-  background: url('https://img.freepik.com/foto-gratis/mano-femenina-que-sostiene-tomate-granja-organica_1150-6775.jpg?w=2000&t=st=1677464121~exp=1677464721~hmac=6bc5547a1ff8c0ad5752ed6b2b8ecc1932cd3bb448ab87b78e0a9e547c9219ae');
+  background: url('https://i.postimg.cc/sDcgdnWw/mano-femenina-que-sostiene-tomate-granja-organica.jpg');
   background-size: cover;
   background-position: center;
   border:solid 1px transparent;
@@ -94,5 +94,6 @@ export default Landing;
 
 /**
  * https://img.freepik.com/foto-gratis/mano-femenina-que-sostiene-tomate-granja-organica_1150-6775.jpg?w=2000&t=st=1677464121~exp=1677464721~hmac=6bc5547a1ff8c0ad5752ed6b2b8ecc1932cd3bb448ab87b78e0a9e547c9219ae
+ * https://i.postimg.cc/sDcgdnWw/mano-femenina-que-sostiene-tomate-granja-organica.jpg
  * https://img.freepik.com/foto-gratis/vista-cerca-mano-agricultores-recogiendo-manzana-huerto-frutas_342744-1026.jpg?w=2000&t=st=1677463605~exp=1677464205~hmac=cb2fc357d9969304581975707fde9e7d1ef5188c3a793d083ea3d63aab9de2fc
  */

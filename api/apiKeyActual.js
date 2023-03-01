@@ -23,7 +23,7 @@ const {
   API_KEY_F } = process.env;
 
 //Si Nos Quedamos Sin Request, Le Damos Otra API_KEY A Nuestra Variable 'clave'
-const clave = API_KEY_F;
+const clave = API_KEY8;
 
 // El Cambio Se Realiza En Un Solo Lugar
 // Quedando Mas Limpio Nuestro Codigo.

@@ -19,6 +19,7 @@ import {
     allFoods: [],
     detailFood: {},
     diets: [],
+    creadas: [],
     errorByName: {},
     errorAllFoods: {},
     errorGetDetail: {},
@@ -56,6 +57,7 @@ import {
       case CREATE_RECIPES:
         return {
           ...state,
+          creadas: [...state.creadas, action.payload],
         }
 
       case FILTER_BY_DIETS:

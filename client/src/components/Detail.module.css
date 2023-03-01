@@ -4,6 +4,11 @@
   border: solid 1px transparent;
 }
 
+.rellenoLoadingError {
+  width: 245px;
+  border: solid 1px transparent;
+}
+
 .levelDietas{
   width: 100%;
   display: flex;
@@ -55,7 +60,7 @@
 .detailContainerDetail, 
 .detailContainerLoading,
 .detailContainerError {
-  background: url('https://img.freepik.com/foto-gratis/negro-textura-concreto-sucio_1194-7661.jpg?w=2000&t=st=1677372668~exp=1677373268~hmac=b09c69af1c35c00e9e58643600e93e09bb4860af8edc0ce41282cabb41667a96');
+  background: url('https://i.postimg.cc/sgJBDjhd/textura-pared-grunge.jpg');
 }
 
 .detailContainerDetail {
@@ -225,3 +230,9 @@
   opacity: 0.9;
   border: solid 1px transparent;
 }
+
+/*
+https://img.freepik.com/foto-gratis/negro-textura-concreto-sucio_1194-7661.jpg?w=2000&t=st=1677372668~exp=1677373268~hmac=b09c69af1c35c00e9e58643600e93e09bb4860af8edc0ce41282cabb41667a96
+
+https://i.postimg.cc/sgJBDjhd/textura-pared-grunge.jpg
+*/

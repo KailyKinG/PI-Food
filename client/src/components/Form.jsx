@@ -9,7 +9,7 @@ import styled from "styled-components";
 const ContainerForm = styled.form`
   width:100vw;
   min-height:54.45rem;
-  background-image: url("https://img.freepik.com/foto-gratis/vista-superior-variedad-alimentos-saludables_23-2148381272.jpg?w=2000&amp;t=st=1677174458~exp=1677175058~hmac=8df90b251670b5716cf7c58f663533dbc4eaa9b996d130b170cad37179fb0135%22");
+  background-image: url("https://i.postimg.cc/W4m9XJCF/vista-superior-variedad-alimentos-saludables-3.jpg ");
   background-size: cover;
   display: flex;
   justify-content: flex-end;
@@ -49,8 +49,6 @@ const Form = (props) => {
     step:"",
     dietas: "",
   });
-
-  console.log(inputs.dietas);
 
 
   const handlerTextChange = (e) => {
@@ -115,7 +113,7 @@ const Form = (props) => {
   }
 
   return(
-    <ContainerForm onSubmit={handlerSubmit}>
+    <ContainerForm onSubmit={(e) => handlerSubmit(e)}>
       <div className={f.containerCENTRAL}>
         <h1>Create Your Recipe</h1>
         <div className={f.firstData}>
@@ -223,7 +221,7 @@ const Form = (props) => {
                 disabled={true}
                 className={f.botonOff}
               >Create</button> :
-              <button
+              <button type="submit"
                 disabled={false}
                 className={f.sendBoton}
               >Create</button>
@@ -250,4 +248,5 @@ export default Form;
 /**
  * Guardar Importante
  * "https://img.freepik.com/foto-gratis/vista-superior-variedad-alimentos-saludables_23-2148381272.jpg?w=2000&amp;t=st=1677174458~exp=1677175058~hmac=8df90b251670b5716cf7c58f663533dbc4eaa9b996d130b170cad37179fb0135%22"
- */
+  * https://i.postimg.cc/W4m9XJCF/vista-superior-variedad-alimentos-saludables-3.jpg 
+*/
