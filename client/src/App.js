@@ -31,7 +31,7 @@ function App(props) {
   useEffect(() => {
     dispatch(getAllFood());
     dispatch(getAllDiets());
-  },[]);
+  });
 
   return (
     <div className="App">
