@@ -25,38 +25,39 @@ const BotonOrigen = styled.button`
 `;
 
 const Filter = (props) => {
+  const { paginado } = props;
   const dispatch = useDispatch();
 
 
   const handlerDietsChange = (e) => {
     // e.preventDefault();
     const valor = e.target.value;
-    console.log(valor);
     dispatch(filterByDiets(valor));
+    paginado(1);
   };
 
 
   const handlerOriginChange = (e) => {
     e.preventDefault();
     const valor = e.target.value;
-    console.log(valor);
     dispatch(filterByOrigin(valor));
+    paginado(1);
   };
 
 
   const handlerAbcChange = (e) => {
     e.preventDefault();
     const valor = e.target.value;
-    console.log(valor);
     dispatch(orderByABC(valor));
+    paginado(1);
   };
 
 
   const handlerHealthScoreChange = (e) => {
     e.preventDefault();
     const valor = e.target.value;
-    console.log(valor);
     dispatch(orderByHealthScore(valor));
+    paginado(1);
   };
 
   return(

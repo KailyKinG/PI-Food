@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React from "react";
 import Recipe from "../components/Recipe";
 import Paginado from "../components/Paginado";
 import Filter from "../components/Filter";
@@ -14,7 +14,6 @@ const HomeContainer = styled.div`
   padding: 30px;
   display: flex;
   justify-content: space-between;
-  /* border: solid 1px transparent; */
   border: solid 1px transparent;
 `;
 
@@ -29,28 +28,30 @@ const ErrorContainer = styled.div`
 `;
 
 const Home = (props) => {
+  const {currentPage, paginado } = props; //Puede Cambiar
 
-  //Pedimos Todas Las Recetas De Nuestro 'store'
-  const recipes = useSelector((state) => state.foods);
+ 
   const errorByName = useSelector((state) => state.errorByName);
   const errorAllFoods = useSelector((state) => state.errorAllFoods);
-  const [currentPage, setCurrentPage] = useState(1);
 
-  const recipesPorPage = 9;
+  const recipes = useSelector((state) => state.foods);                          //props
+  // const [currentPage, setCurrentPage] = useState(1);                            //props
+
+  const recipesPorPage = 9;                                                     //props
   const indexOfLastPage = currentPage * recipesPorPage;      // 9
   const indexOfFirstPage = indexOfLastPage - recipesPorPage; // 0
-  const currentRecipes = [...recipes].slice(indexOfFirstPage, indexOfLastPage);
+  const currentRecipes = [...recipes].slice(indexOfFirstPage, indexOfLastPage); //props
 
 
-  const paginado = (number) => {
-    setCurrentPage(number);
-  };
+  // const paginado = (number) => {                                                //props
+  //   setCurrentPage(number);
+  // };
 
   if(Object.keys(errorByName).length === 0 && Object.keys(errorAllFoods).length === 0){
     if(recipes.length !== 0){
       return (
         <HomeContainer>
-          <Filter />
+          <Filter paginado={paginado} />
           <div className={h.containerRecetas}>
             {
               currentRecipes?.map((recipe) => (
@@ -75,7 +76,7 @@ const Home = (props) => {
     }else{
       return (
         <HomeContainer>
-          <Filter />
+          <Filter paginado={paginado} />
           <div className={h.containerRecetasError}>
             <div className={h.containerLoading}>
               <div>
@@ -98,7 +99,7 @@ const Home = (props) => {
   }else{
     return (
       <HomeContainer>
-        <Filter />
+        <Filter paginado={paginado} />
         <div className={h.containerRecetasError}>
           <ErrorContainer>
             <h1 className={h.errorTitle}>{(errorByName.Error || errorAllFoods.Error)}</h1>

@@ -38,7 +38,29 @@ const Detail = (props) => {
       if(!isLoading){
         return(
           <DetailContainer className={d.detailContainerDetail}>
-            <div className={d.relleno}></div>
+            <div className={d.relleno}>
+              <div className={d.levelDietas}>
+                <div className={d.healthScore}>
+                  <h2>HealthScore</h2>
+                  <div>
+                    <span>{detailFood.level}</span>
+                  </div>
+                </div>
+                <div className={d.dietas}>
+                  <div style={{width: '100px'}}></div>
+                  <div style={{border: 'solid 1px transparent', textAlign: "left"}}>
+                    <h2>Diets</h2>
+                    <ContainerUL className={d.dietasLista}>
+                      {
+                        detailFood.Diets?.map((elem) => (
+                          <li key={elem.number}>{elem.name}</li>
+                        ))
+                      }
+                    </ContainerUL>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className={d.detailBodega}>
               <div className={d.group1}>
                 <div className={d.imageAndTitle}>
@@ -62,24 +84,6 @@ const Detail = (props) => {
                       ))
                     }
                   </ContainerUL>
-                </div>
-                <div className={d.levelDietas}>
-                  <div className={d.healthScore}>
-                    <h2>HealthScore</h2>
-                    <div>
-                      <span>{detailFood.level}</span>
-                    </div>
-                  </div>
-                  <div className={d.dietas}>
-                    <h2>Diets</h2>
-                    <ContainerUL className={d.dietasLista}>
-                      {
-                        detailFood.Diets?.map((elem) => (
-                          <li key={elem.number}>{elem.name}</li>
-                        ))
-                      }
-                    </ContainerUL>
-                  </div>
                 </div>
               </div>
             </div>

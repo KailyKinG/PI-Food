@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState } from "react";
 import { getAllFoodByName } from "../redux/actions/actions";
 import { connect } from "react-redux";
 
@@ -24,21 +24,25 @@ const SearchComponent = styled.input`
 
 
 const SearchBar = (props) => {
-  const { getAllFoodByName } = props;
+  const { getAllFoodByName, paginado } = props;
   const [search, setSearch] = useState("");
-
-  useEffect(() => {
-    getAllFoodByName(search);
-  }, [getAllFoodByName, search]);
 
   const handlerChange = (e) => {
     const valor = e.target.value;
     setSearch(valor);
   };
 
+  const handlerSubmit = (e) => {
+    e.preventDefault();
+    getAllFoodByName(search);
+    setSearch("");
+    paginado(1);
+  }
+
   return(
     <>
       <SearchComponent type='search' name='search' value={search} onChange={handlerChange} placeholder='Search Recipe...' />
+      <button onClick={(e) => handlerSubmit(e)}>Search</button>
       {/* <p>{search}</p> */}
     </>
   );
