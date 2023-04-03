@@ -22,7 +22,7 @@ const BotonLogout = styled.button`
 `;
 
 const Nav = (props) => {
-  const { paginado } = props;
+  const { setCurrentPage } = props;
 
   return (
     <nav className={n.containerNav}>
@@ -72,7 +72,7 @@ const Nav = (props) => {
       </ul>
 
       <div className={n.containerSearch_Logout}>
-        <SearchBar paginado={paginado} />
+        <SearchBar setCurrentPage={setCurrentPage} />
         <NavLink to='/'>
           <BotonLogout>
             Logout

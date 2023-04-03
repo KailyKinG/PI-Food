@@ -24,7 +24,7 @@ const SearchComponent = styled.input`
 
 
 const SearchBar = (props) => {
-  const { getAllFoodByName, paginado } = props;
+  const { getAllFoodByName, setCurrentPage } = props;
   const [search, setSearch] = useState("");
 
   const handlerChange = (e) => {
@@ -35,7 +35,7 @@ const SearchBar = (props) => {
 
   useEffect(() => {
     getAllFoodByName(search);
-    paginado(1);
+    setCurrentPage(1);
   }, [getAllFoodByName, search]);
 
 

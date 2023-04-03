@@ -55,7 +55,7 @@ Viendo como con unos comandos podía hacer que las letras cambiarán de tamaño 
                 <a href="https://github.com/KailyKinG" target="_blank" rel="noreferrer"><img className={a.imageContact} height="92px" src={GithubIcon} alt="Icono De GitHub" /></a>
               </div>
               <div className={a.cardContact}>
-              <a href="https://www.linkedin.com/in/jorge-manuel-bravo-sepulveda-a63365175/" target="_blank" rel="noreferrer"><img height="92px" src={LinkedinIcon} alt="Icono De Linkedin" /></a>
+              <a href="https://www.linkedin.com/in/jorge-manuel-bravo-sep%C3%BAlveda-a63365175/" target="_blank" rel="noreferrer"><img height="92px" src={LinkedinIcon} alt="Icono De Linkedin" /></a>
                 </div>
             </div>
           </div>

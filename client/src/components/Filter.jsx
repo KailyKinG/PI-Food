@@ -25,7 +25,7 @@ const BotonOrigen = styled.button`
 `;
 
 const Filter = (props) => {
-  const { paginado } = props;
+  const { setCurrentPage } = props;
   const dispatch = useDispatch();
 
 
@@ -33,7 +33,7 @@ const Filter = (props) => {
     // e.preventDefault();
     const valor = e.target.value;
     dispatch(filterByDiets(valor));
-    paginado(1);
+    setCurrentPage(1);
   };
 
 
@@ -41,7 +41,7 @@ const Filter = (props) => {
     e.preventDefault();
     const valor = e.target.value;
     dispatch(filterByOrigin(valor));
-    paginado(1);
+    setCurrentPage(1);
   };
 
 
@@ -49,7 +49,7 @@ const Filter = (props) => {
     e.preventDefault();
     const valor = e.target.value;
     dispatch(orderByABC(valor));
-    paginado(1);
+    setCurrentPage(1);
   };
 
 
@@ -57,7 +57,7 @@ const Filter = (props) => {
     e.preventDefault();
     const valor = e.target.value;
     dispatch(orderByHealthScore(valor));
-    paginado(1);
+    setCurrentPage(1);
   };
 
   return(

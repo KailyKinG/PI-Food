@@ -15,9 +15,6 @@ function App(props) {
   const creadas = useSelector((state) => state.creadas);
   const [currentPage, setCurrentPage] = useState(1);                            //props
 
-  const paginado = (number) => {                                                //props
-    setCurrentPage(number);
-  };
 
   const dispatch = useDispatch();
   const location = useLocation();
@@ -30,11 +27,11 @@ function App(props) {
   return (
     <div className="App">
       {
-        location.pathname !== '/' && <Nav paginado={paginado} />
+        location.pathname !== '/' && <Nav setCurrentPage={setCurrentPage} />
       }
       <Switch>
         <Route exact path='/' component={Landing} />
-        <Route exact path='/home' render={() => <Home currentPage={currentPage} paginado={paginado} />}/> {/* Home */}
+        <Route exact path='/home' render={() => <Home currentPage={currentPage} setCurrentPage={setCurrentPage} />}/> {/* Home */}
         <Route exact path='/about' component={About} />
         <Route exact path='/form' component={Form} />
         <Route exact path='/detail/:idDetail' render={({match}) => <Detail match={match.params.idDetail}/>} />

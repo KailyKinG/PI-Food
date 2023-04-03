@@ -81,7 +81,7 @@ que estarán a tu disposición.
             <a href="https://github.com/KailyKinG" target="_blank" rel="noreferrer"><img className={l.image1} src={GitHub} alt="Icono De GitHub" /></a>
           </div>
           <div className={l.contactLinkedin}>
-            <a href="https://www.linkedin.com/in/jorge-manuel-bravo-sepulveda-a63365175/" target="_blank" rel="noreferrer"><img className={l.image2} src={Linkedin} alt="Icono De Linkedin" /></a>
+            <a href="https://www.linkedin.com/in/jorge-manuel-bravo-sep%C3%BAlveda-a63365175/" target="_blank" rel="noreferrer"><img className={l.image2} src={Linkedin} alt="Icono De Linkedin" /></a>
           </div>
         </div>
       </div>

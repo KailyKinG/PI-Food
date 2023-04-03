@@ -28,7 +28,7 @@ const ErrorContainer = styled.div`
 `;
 
 const Home = (props) => {
-  const {currentPage, paginado } = props;
+  const {currentPage, setCurrentPage } = props;
 
  
   const errorByName = useSelector((state) => state.errorByName);
@@ -46,7 +46,7 @@ const Home = (props) => {
     if(recipes.length !== 0){
       return (
         <HomeContainer>
-          <Filter paginado={paginado} />
+          <Filter setCurrentPage={setCurrentPage} />
           <div className={h.containerRecetas}>
             {
               currentRecipes?.map((recipe) => (
@@ -63,7 +63,7 @@ const Home = (props) => {
           <Paginado
             DB={recipes.length}
             recipesPorPage={recipesPorPage}
-            paginado={paginado}
+            setCurrentPage={setCurrentPage}
             currentPage={currentPage}
           />
         </HomeContainer>
@@ -71,7 +71,7 @@ const Home = (props) => {
     }else{
       return (
         <HomeContainer>
-          <Filter paginado={paginado} />
+          <Filter setCurrentPage={setCurrentPage} />
           <div className={h.containerRecetasError}>
             <div className={h.containerLoading}>
               <div>
@@ -85,7 +85,7 @@ const Home = (props) => {
           <Paginado
             DB={recipes.length}
             recipesPorPage={recipesPorPage}
-            paginado={paginado}
+            setCurrentPage={setCurrentPage}
             currentPage={currentPage}
           />
         </HomeContainer>
@@ -94,7 +94,7 @@ const Home = (props) => {
   }else{
     return (
       <HomeContainer>
-        <Filter paginado={paginado} />
+        <Filter setCurrentPage={setCurrentPage} />
         <div className={h.containerRecetasError}>
           <ErrorContainer>
             <h1 className={h.errorTitle}>{(errorByName.Error || errorAllFoods.Error)}</h1>
@@ -107,7 +107,7 @@ const Home = (props) => {
         <Paginado
           DB={recipes.length}
           recipesPorPage={recipesPorPage}
-          paginado={paginado}
+          setCurrentPage={setCurrentPage}
           currentPage={currentPage}
         />
       </HomeContainer>

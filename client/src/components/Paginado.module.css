@@ -25,3 +25,14 @@
   color: black;
   font-weight: bold;
 }
+
+.stylesLiPrevNext{
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+}
+
+img {
+  width: 100%;
+  cursor: pointer;
+}
