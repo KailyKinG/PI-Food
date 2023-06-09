@@ -25,7 +25,8 @@ import {
 // BASE DE LA URL QUE VIENE DESDE BACKEND
 // ---------------------------------------
 // const baseURL = "http://localhost:3001";
-const baseURL = "https://pi-food-production-5535.up.railway.app";
+// const baseURL = "https://pi-food-production-5535.up.railway.app";
+const baseURL = "https://pi-food-server.onrender.com";
 // ------------------------------------------------------------------
 
 //CREAMOS NUESTRAS ACTIONS
